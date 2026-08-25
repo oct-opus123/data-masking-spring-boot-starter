@@ -21,21 +21,21 @@ public class PhoneMaskStrategy implements MaskStrategy {
         if (str == null || str.isEmpty()) {
             return str;
         }
+        // 可能left 和right传递负数
+        if (left < 0 || right < 0) {
+            throw new IllegalArgumentException("脱敏参数错误：left 和 right 不能为负数");
+        }
         int len = str.length();
         // 保留全部
         if (left + right >= len) {
             return str;
         }
-
-        StringBuilder stringBuilder = new StringBuilder();
         // 左侧保留
-        stringBuilder.append(str, 0, left);
-        // 中间脱敏
-        stringBuilder.append(String.valueOf(character).repeat(Math.max(0, len - right - left)));
-        // 右侧保留
-        stringBuilder.append(str, len - right, len);
-
-        return stringBuilder.toString();
+        return str.substring(0, left) +
+                // 中间脱敏
+                String.valueOf(character).repeat(Math.max(0, len - right - left)) +
+                // 右侧保留
+                str.substring(len - right, len);
     }
 
     @Override

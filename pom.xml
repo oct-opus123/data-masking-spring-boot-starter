@@ -5,7 +5,7 @@
 
     <groupId>io.github.oct-opus123</groupId>
     <artifactId>data-masking-spring-boot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <name>data-masking-spring-boot-starter</name>
     <description>
@@ -43,7 +43,8 @@
         <!--    1. 只读仓库地址（匿名克隆，用 git:// 或 https://）-->
         <connection>scm:git:git://github.com/oct-opus123/data-masking-spring-boot-starter.git</connection>
         <!-- 2. 开发者写权限地址（SSH 方式，需要认证） -->
-        <developerConnection>scm:git:ssh://git@github.com:oct-opus123/data-masking-spring-boot-starter.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com:oct-opus123/data-masking-spring-boot-starter.git
+        </developerConnection>
         <!-- 3. 浏览地址（GitHub 项目主页） -->
         <url>https://github.com/oct-opus123/data-masking-spring-boot-starter</url>
         <!-- 4. 标签/版本标记，通常保持 HEAD 或填写具体的版本号 -->
