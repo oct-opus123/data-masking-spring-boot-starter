@@ -21,7 +21,7 @@
 <dependency>
     <groupId>io.github.oct-opus123</groupId>
     <artifactId>data-masking-spring-boot-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
 </dependency>
 ```
 
