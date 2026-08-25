@@ -70,7 +70,6 @@ public class MaskProcessor {
                     }
                     // 执行脱敏
                     String result = strategy.mask(value.toString(), mask.character(), mask.left(), mask.right());
-
                     // 设置脱敏后的值
                     field.set(obj, result);
 

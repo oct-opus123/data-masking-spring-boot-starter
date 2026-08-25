@@ -18,24 +18,14 @@ public class PhoneMaskStrategy implements MaskStrategy {
      */
     @Override
     public String mask(String str, char character, int left, int right) {
-        if (str == null || str.isEmpty()) {
-            return str;
+
+        // 如果参数上没有指定，那么默认手机号左侧保留3位，右侧保留4位
+        if (left == 0 && right == 0) {
+            left = 3;
+            right = 4;
         }
-        // 可能left 和right传递负数
-        if (left < 0 || right < 0) {
-            throw new IllegalArgumentException("脱敏参数错误：left 和 right 不能为负数");
-        }
-        int len = str.length();
-        // 保留全部
-        if (left + right >= len) {
-            return str;
-        }
-        // 左侧保留
-        return str.substring(0, left) +
-                // 中间脱敏
-                String.valueOf(character).repeat(Math.max(0, len - right - left)) +
-                // 右侧保留
-                str.substring(len - right, len);
+
+        return maskByPosition(str, character, left, right);
     }
 
     @Override

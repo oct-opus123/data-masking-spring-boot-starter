@@ -20,13 +20,13 @@ public class MaskStrategyConfiguration {
     }
 
     @Bean
-    @ConditionalOnMissingBean(PhoneMaskStrategy.class)
+    @ConditionalOnMissingBean(EmalMaskStrategy.class)
     public EmalMaskStrategy emalMaskStrategy() {
         return new EmalMaskStrategy();
     }
 
     @Bean
-    @ConditionalOnMissingBean(PhoneMaskStrategy.class)
+    @ConditionalOnMissingBean(IdCardMaskStrategy.class)
     public IdCardMaskStrategy idCardMaskStrategy() {
         return new IdCardMaskStrategy();
     }

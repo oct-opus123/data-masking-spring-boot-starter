@@ -18,7 +18,22 @@ public class EmalMaskStrategy implements MaskStrategy {
      */
     @Override
     public String mask(String str, char character, int left, int right) {
-        return "";
+        if (str == null) return "";
+        // 找到@符号，@符号右边不做处理
+        int atIndex = str.indexOf('@');
+        // 不合法的邮箱不进行脱敏
+        if (atIndex <= 0 || atIndex == str.length() - 1) {
+            return str;
+        }
+        if (!canMask(str, atIndex, left, right)) {
+            return str;
+        }
+        return str.substring(0, left) // 左侧处理
+                        + String.valueOf(character).repeat(atIndex - left - right) // 中间处理
+                        + str.substring(atIndex - right, atIndex)// 右侧处理和@符号左侧处理
+                        + str.substring(atIndex);// @符号右侧处理
+
+
     }
 
     @Override

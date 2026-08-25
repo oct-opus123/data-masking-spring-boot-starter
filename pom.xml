@@ -5,7 +5,7 @@
 
     <groupId>io.github.oct-opus123</groupId>
     <artifactId>data-masking-spring-boot-starter</artifactId>
-    <version>0.0.2</version>
+    <version>1.0.0</version>
 
     <name>data-masking-spring-boot-starter</name>
     <description>
